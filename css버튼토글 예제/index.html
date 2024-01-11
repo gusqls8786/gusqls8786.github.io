@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 토글버튼 예제</title>
+    <style>
+      .toggleSwitch {
+        width: 100px;
+        height: 50px;
+        display: block;
+        position: relative;
+        border-radius: 30px;
+        background-color: #fff;
+        box-shadow: 0 0 16px 3px rgba(0 0 0 / 15%);
+        cursor: pointer;
+        margin: 30px;
+      }
+
+      .toggleSwitch .toggleButton {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 50%;
+        left: 4px;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        background: #f03d3d;
+      }
+
+      #toggle:checked ~ .toggleSwitch {
+        background: #f03d3d;
+      }
+
+      #toggle:checked ~ .toggleSwitch .toggleButton {
+        left: calc(100% - 44px);
+        background: #fff;
+      }
+
+      .toggleSwitch,
+      .toggleButton {
+        transition: all 0.3s ease-in;
+      }
+
+      .modal {
+        display: none;
+      }
+      .modal-container {
+        display: flex;
+        width: 500px;
+        height: 300px;
+        border: 1px solid black;
+        justify-content: center;
+        align-items: center;
+        height: 30vh;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="modal">
+      <div class="modal-container">
+        쌀라쌀라 님 이거 동의하면 광고문자 ㅈㄴ 받음 ㅇㅋ?
+        <br />
+        <input type="checkbox" id="toggle" hidden />
+
+        <label for="toggle" class="toggleSwitch">
+          <span class="toggleButton"></span>
+        </label>
+      </div>
+    </div>
+    <div class="main">
+      아래 버튼 눌러서 약관 동의하고오셈 ㅇㅇ <br />
+      <button onclick="visibleModal()">약관보기</button>
+    </div>
+    <script>
+      function visibleModal() {
+        const modal = document.querySelector(".modal");
+        modal.style.display = "block";
+
+        const agreeCheckbox = document.querySelector("#toggle");
+        agreeCheckbox.checked = false;
+
+        const main = document.querySelector(".main");
+        main.style.display = "none";
+      }
+
+      document.getElementById("toggle").addEventListener("click", function () {
+        setTimeout(function () {
+          const modal = document.querySelector(".modal");
+          modal.style.display = "none";
+
+          const main = document.querySelector(".main");
+          main.style.display = "block";
+        }, 800);
+      });
+    </script>
+  </body>
+</html>

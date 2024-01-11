@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO LIST</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      li {
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>투두리스트</h1>
+    <div id="todoList"></div>
+    <input id="todoInput" />
+    <button id="addTodo">일정 추가하기</button>
+   
+    <script>
+      function addTodoItem(todoText) {
+        let todoList = document.getElementById("todoList");
+        let todoItem = document.createElement("li");
+
+        todoItem.addEventListener("click", function () {
+          todoList.removeChild(todoItem);
+        });
+
+        todoItem.innerText = todoText;
+        todoList.appendChild(todoItem);
+        localStorage.setItem("todoList", todoList.innerHTML);
+      }
+
+      let button = document.getElementById("addTodo");
+      let todoInput = document.getElementById("todoInput");
+      button.addEventListener("click", () => addTodoItem(todoInput.value));
+
+      window.onload = function () {
+        let todoList = document.getElementById("todoList");
+        todoList.innerHTML = localStorage.getItem("todoList");
+      };
+
+      
+    </script>
+  </body>
+</html>
+
