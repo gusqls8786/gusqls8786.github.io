@@ -100,7 +100,41 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //--------------------------------------------
 
-// ---------------------------------- my school project
+// --------------------------------- scroll to section3
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll(".about_intro .text div").forEach(createSpan);
+
+  var tl = gsap.timeline({
+      onComplete: function() {
+          scrollToSection2();
+      }
+  });
+
+  document.querySelectorAll(".about_intro .text div span").forEach((span, i) => {
+      tl.to(span, {autoAlpha: 1, duration: 0.1}, i * 0.1);
+  });
+});
+
+function createSpan(element) {
+  let textContent = element.textContent.split("");
+  let spanWrappedText = textContent.map(char => {
+      return `<span style="opacity: 0;">${char}</span>`;
+  }).join("");
+
+  element.innerHTML = spanWrappedText;
+}
+
+function scrollToSection2() {
+  var section2 = document.querySelector('#section3');
+  var section2Top = section2.offsetTop;
+
+  window.scrollTo({top: section2Top, behavior: 'smooth'});
+}
+
+// ----------------------------------- scroll to section3 end
+
+// ----------------------------------- my school project
 
 document.addEventListener("DOMContentLoaded", function () {
   var editor = ace.edit("editor");
@@ -342,4 +376,4 @@ document.addEventListener("DOMContentLoaded", function () {
   editor.setFontSize(14);
 });
 
-// -------------------------- my school project end
+// ---------------------------------- my school project end
