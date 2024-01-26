@@ -5,23 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <header id="header">
-      <h1>Binny <em>portfolio</em></h1>
+      <h1>Binny <em>portfolio</em></h1>      
       <nav>
         <ul>
           <li><a href="#section1">my motto</a></li>
           <li><a href="#section3">Who am i</a></li>
-          <li><a href="#section2">my school project</a></li>
+          <li><a href="#section2">My story</a></li>
           <li><a href="#section4">portfolio</a></li>
           <li><a href="#section5">contect</a></li>
         </ul>
       </nav>
+      <label class="switch">
+        <span class="sun"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="#ffd43b"><circle r="5" cy="12" cx="12"></circle><path d="m21 13h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm-17 0h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm13.66-5.66a1 1 0 0 1 -.66-.29 1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1 -.75.29zm-12.02 12.02a1 1 0 0 1 -.71-.29 1 1 0 0 1 0-1.41l.71-.66a1 1 0 0 1 1.41 1.41l-.71.71a1 1 0 0 1 -.7.24zm6.36-14.36a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm0 17a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm-5.66-14.66a1 1 0 0 1 -.7-.29l-.71-.71a1 1 0 0 1 1.41-1.41l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.29zm12.02 12.02a1 1 0 0 1 -.7-.29l-.66-.71a1 1 0 0 1 1.36-1.36l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.24z"></path></g></svg></span>
+        <span class="moon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="m223.5 32c-123.5 0-223.5 100.3-223.5 224s100 224 223.5 224c60.6 0 115.5-24.2 155.8-63.4 5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6-96.9 0-175.5-78.8-175.5-176 0-65.8 36-123.1 89.3-153.3 6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"></path></svg></span>   
+        <input type="checkbox" class="input">
+        <span class="slider"></span>
+      </label>
     </header>
 
     <main id="contents">
@@ -232,20 +238,64 @@
 
         <section id="section2">
         <div class="intro_wrap">
-          <div class="intro_title">My school project</div>
+          
+          <div class="intro_title">
+            My story
+            <div class="story_image">
+            <img src="./img/KakaoTalk_20240126_095145997.jpg" class="slider-image" alt="image1" >
+            <img src="./img/KakaoTalk_20240126_112256750.jpg" class="slider-image" alt="image2" >
+            <img src="./img/KakaoTalk_20240126_112256750_01.jpg" class="slider-image" alt="image3" >
+            <img src="./img/KakaoTalk_20240126_112256750_02.jpg" class="slider-image" alt="image4" >
+            <img src="./img/KakaoTalk_20240126_112256750_03.jpg" class="slider-image" alt="image5" >
+            <img src="./img/KakaoTalk_20240126_112256750_04.jpg" class="slider-image" alt="image6" >
+            <img src="./img/KakaoTalk_20240126_112256750_05.jpg" class="slider-image" alt="image7" >
+            </div>
+            
+          </div> 
+          
             <div class="intro_desc">
-                <div class="one">
-                    <h3>1.</h3>
-                    <p>open ai made by python</p>
-                    <div id="editor"></div>
-                    <img src="./img/gpt 구현.PNG" alt="">
+              <div class="one">
+                <p>안녕하세요, 저는 웹퍼블리셔, 프론트엔드 개발자를 준비하고있는 부산에 살고있는 양현빈 입니다.
+                  <br>부산외국어대학교 에서 컴퓨터 소프트웨어학 학사학위를 취득한 후, 그린 컴퓨터 아카데미에서 웹퍼블리셔 과정을 수료하였습니다.
+                  <br>저를 표현하는 키워드는 #성실함, #정직함, #책임감 입니다.
+                  <br>이 세가지 키워드로 저를 설명하자면 처음 하는일이 느리고 부족해 보일지라도 항상 맡은일에 최선을 다하고 끝까지 해야한다는 책임감을 가지고 있으며 
+                  <br>일을 하는데 있어 약속된 기한이 있다면 그 기한안에 제출을 해야한다는 생각을 가지고 있기 때문에 성실하게 모든일을 처리해 내는 스타일 입니다.
+                  <br>마지막으로 일을 하는데 있어 거짓없이 일을 해야한다고 생각합니다 그 이유는 나 자신만을 생각하는건 일을 할때 주변 동료와 상사에게 피해를 주고 일의 효율이 떨어진다고 생각하기 때문입니다.
+                  <br>제가 보유한 기술은 HTML5, CSS3, JavaScript입니다. 그외로 Figma, photoshop를 중점적으로 다룰수있습니다.
+                  <br>주로 코딩과 관련된 공부를 할때 트렌드 분석이 중요하다고 생각하기 때문에 awwward 사이트 혹은 디비컷을 중점적으로 보고 트렌드 분석을 하고있고
+                  모르는 것이 존재한다면 구글링 혹은 chat-gpt를 이용하고 있습니다.
+                  <br>저의 취미는 여행입니다 잠시동안의 현실에서 벗어나 새로운 곳에서의 경험 그리고 새로운 인연들이 저를 한층더 성장하게 만들고 돌아 왔을때 달라진 모습이 보이기 때문에
+                  여행을 즐겨 하고있습니다
+                </p>
+              </div>
+
+              
+              <div class="heart-container" title="Like">
+                <input type="checkbox" class="checkbox" id="like-button">
+                <div class="svg-container">
+                    <svg viewBox="0 0 24 24" class="svg-outline" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z">
+                        </path>
+                    </svg>
+                    <svg viewBox="0 0 24 24" class="svg-filled" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z">
+                        </path>
+                    </svg>
+                    <svg class="svg-celebrate" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="10,10 20,20"></polygon>
+                        <polygon points="10,50 20,50"></polygon>
+                        <polygon points="20,80 30,70"></polygon>
+                        <polygon points="90,10 80,20"></polygon>
+                        <polygon points="90,50 80,50"></polygon>
+                        <polygon points="80,80 70,70"></polygon>
+                    </svg>
                 </div>
-                <div class="two">
-                    <h3>2.</h3>
-                    <p>calculator made by JAVA </p>
-                    <div id="codeEditor"></div>
-                    <p>구현사진은 추가할예정</p>
-                </div>
+                <label for="like-button" class="like-label">If you like my story press this button</label>
+            </div>
+            </div>
+          </div>
+
+              
             </div>
         </div>
         </section>

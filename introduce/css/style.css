@@ -192,18 +192,53 @@ header nav li a {
   font-size: 20px;
   padding: 5% 5% 30% 0;
   text-align: justify;
+  line-height: 1.5;
+  margin-bottom: 10px;
   color: whitesmoke;
 }
 
-#editor {
-  height: 400px; 
-  color: whitesmoke;
+#section2 .intro_wrap {
+  display: flex;
+  align-items: start;
 }
 
-#codeEditor {
+#section2 .image_container {
+  width: 45%;
+  padding-right: 20px;
+}
+
+#section2 .image_container img {
   width: 100%;
-  height: 400px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
+
+#section2 .intro_content {
+  width: 45%;
+}
+
+.story_image {
+  width: 100%;
+  height: 1000%;
+  position: relative; /* 이미지가 겹치도록 설정 */
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0; /* 기본적으로 이미지를 숨김 */
+  transition: opacity 1s ease-in-out; /* 부드러운 페이드 효과 */
+}
+
+.slider-image.active {
+  opacity: 1; /* 활성 이미지 표시 */
+}
+
 
 
 #section3 {
@@ -239,6 +274,7 @@ header nav li a {
   left: 0;
   top: 200px;
   margin-top: 20px;
+  padding: 0 2%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
@@ -274,7 +310,7 @@ header nav li a {
 
 #section3 .pic_wrap .pic_desc .pic {
   position: relative;
-  width: 450px;
+  width: auto;
   height: 450px; 
   background-color: #181818;
   overflow: hidden;
@@ -614,4 +650,254 @@ header nav li a {
 
 .Btn:hover .svgContainer {
   background-color: rgba(156, 156, 156, 0.466);
+}
+
+
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #73C0FC;
+  transition: .4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 30px;
+  width: 30px;
+  border-radius: 20px;
+  left: 2px;
+  bottom: 2px;
+  z-index: 2;
+  background-color: #e8e8e8;
+  transition: .4s;
+}
+
+.sun svg {
+  position: absolute;
+  top: 6px;
+  left: 36px;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+}
+
+.moon svg {
+  fill: #73C0FC;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+}
+
+/* .switch:hover */.sun svg {
+  animation: rotate 15s linear infinite;
+}
+
+@keyframes rotate {
+ 
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* .switch:hover */.moon svg {
+  animation: tilt 5s linear infinite;
+}
+
+@keyframes tilt {
+ 
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-10deg);
+  }
+
+  75% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.input:checked + .slider {
+  background-color: #183153;
+}
+
+.input:focus + .slider {
+  box-shadow: 0 0 1px #183153;
+}
+
+.input:checked + .slider:before {
+  transform: translateX(30px);
+}
+
+body.dark-theme {
+  background-color: #181818; /* 어두운 배경색 */
+  color: #FFFFFF; /* 밝은 글자색 */
+  /* 기타 어두운 테마 스타일 */
+}
+
+body.light-theme {
+  background-color: #FFFFFF; /* 밝은 배경색 */
+  color: #000000; /* 어두운 글자색 */
+}
+
+body.light-theme header h1,
+body.light-theme header h1 em,
+body.light-theme header nav li a,
+body.light-theme .about_intro .text div,
+body.light-theme .intro_title,
+body.light-theme .intro_desc p,
+body.light-theme #section3 .pic_wrap .pic_title,
+body.light-theme #section4 .port_wrap .port_title,
+body.light-theme #section5 p ,
+body.light-theme #section1 .about_title h2,
+body.light-theme #section1 .loader .scanner span,
+body.light-theme .skills h3,
+body.light-theme #section5 .about_title .split,
+body.light-theme .main .skill-name{
+  color: black;
+}
+
+
+
+.heart-container {
+  --heart-color: rgb(255, 91, 137);
+  position: relative;
+  width: 50px;
+  height: 50px;
+  transition: .3s;
+}
+
+.heart-container .checkbox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 20;
+  cursor: pointer;
+}
+
+.heart-container .svg-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heart-container .svg-outline,
+        .heart-container .svg-filled {
+  fill: var(--heart-color);
+  position: absolute;
+}
+
+.heart-container .svg-filled {
+  animation: keyframes-svg-filled 1s;
+  display: none;
+}
+
+.heart-container .svg-celebrate {
+  position: absolute;
+  animation: keyframes-svg-celebrate .5s;
+  animation-fill-mode: forwards;
+  display: none;
+  stroke: var(--heart-color);
+  fill: var(--heart-color);
+  stroke-width: 2px;
+}
+
+.heart-container .checkbox:checked~.svg-container .svg-filled {
+  display: block
+}
+
+.heart-container .checkbox:checked~.svg-container .svg-celebrate {
+  display: block
+}
+
+@keyframes keyframes-svg-filled {
+  0% {
+    transform: scale(0);
+  }
+
+  25% {
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(1);
+    filter: brightness(1.5);
+  }
+}
+
+@keyframes keyframes-svg-celebrate {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 1;
+    filter: brightness(1.5);
+  }
+
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+    display: none;
+  }
+}
+
+
+body.light-theme #section2 .intro_wrap .intro_title .intro_desc .one h3,
+body.light-theme #section2 .intro_wrap .intro_title .intro_desc .two h3,
+body.light-theme #section2 .intro_wrap .intro_title .intro_desc .three h3,
+body.light-theme #section2 .intro_wrap .intro_title .intro_desc .four h3,
+body.light-theme #section2 .intro_wrap .intro_title .intro_desc .five h3,
+body.light-theme #section2 .intro_wrap .intro_title .intro_desc .one h3 p,
+body.light-theme #section2 .intro_wrap .intro_title .intro_desc .two h3 p,
+body.light-theme #section2 .intro_wrap .intro_title .intro_desc .three h3 p,
+body.light-theme #section2 .intro_wrap .intro_title .intro_desc .four h3 p,
+body.light-theme #section2 .intro_wrap .intro_title .intro_desc .five h3 p{
+ color: black;
+}
+
+.like-label {
+  margin-left: 10px; /* 라벨과 버튼 사이의 간격 조절 */
+  font-size: 30px; /* 글자 크기 */
+  color: whitesmoke; /* 글자 색상 */
+  /* 기타 필요한 스타일 */
+}
+
+.heart-container .like-label {
+  white-space: nowrap;
 }
