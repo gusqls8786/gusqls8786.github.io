@@ -204,6 +204,7 @@ let tl = gsap.timeline({
 });
 
 
+
 gsap.to("#s4preview", {
   scrollTrigger: {
     trigger: "#s4preview",
@@ -216,12 +217,17 @@ gsap.to("#s4preview", {
 
 tl.to("#s4preview ul", {
   rotate: 30,
+  duration: 0.1 
 });
+
+
 tl.to("#s4preview ul", {
   rotate: -360,
   width: "50vw",
   height: "50vw",
-});
+  duration: 0.1, 
+  immediateRender: false 
+}); 
 
 tl.to(
   "#s4preview ul li", {
@@ -231,6 +237,7 @@ tl.to(
 );
 
 tl.to("#s4preview ul li", {
+  duration: 0.1,
   width: "39%",
   height: "39%",
   margin: "1%",
@@ -238,6 +245,7 @@ tl.to("#s4preview ul li", {
 
 
 tl.to("#s4preview ul", {
+  duration: 0.1,
   width: "70vw",
   height: "39.725vw",
 });
@@ -249,3 +257,5 @@ tl.to("#s4preview ul li .cont", {
 tl.to("#s4preview ul li .s4text", {
   opacity: 1
 },"<");
+
+// ----------------------------------------- project preview end

@@ -953,10 +953,9 @@ body.light-theme #section2 .intro_wrap .intro_title .intro_desc .five h3 p {
 }
 
 .like-label {
-  margin-left: 10px; /* 라벨과 버튼 사이의 간격 조절 */
-  font-size: 30px; /* 글자 크기 */
-  color: whitesmoke; /* 글자 색상 */
-  /* 기타 필요한 스타일 */
+  margin-left: 10px;
+  font-size: 30px; 
+  color: whitesmoke; 
 }
 
 .heart-container .like-label {
