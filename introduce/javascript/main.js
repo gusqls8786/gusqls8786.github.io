@@ -37,11 +37,11 @@ backColor.forEach((colorSection, i) => {
 const horSection = gsap.utils.toArray(".port_desc .port");
 
 const horiz = gsap.to(horSection, {
-  xPercent: -30 * (horSection.length - 1),
+  xPercent: -45 * (horSection.length - 1),
   scrollTrigger: {
-    trigger: ".port_desc",
-    start: "top 20%",
-    end: "+=1500",
+    trigger: "#section4",
+    start: "top top",
+    end: "+=2000",
     scrub: 1,
     pin: true,
   },
@@ -141,53 +141,111 @@ function scrollToSection2() {
 
 // ----------------------------------- scroll to section3 end
 
-
 // ----------------------------------------- dark_mode start
 
 document.addEventListener("DOMContentLoaded", function () {
   var switchInput = document.querySelector(".switch .input");
   var body = document.body;
 
+  
+  body.classList.add("dark-theme");
+
   switchInput.addEventListener("change", function () {
     if (this.checked) {
-      body.classList.add("dark-theme");
-      body.classList.remove("light-theme");
-    } else {
-      body.classList.add("light-theme");
       body.classList.remove("dark-theme");
+      body.classList.add("light-theme");
+    } else {
+      body.classList.remove("light-theme");
+      body.classList.add("dark-theme");
     }
   });
 });
 
 // --------------------------------------------- dark_mode end
 
-document.getElementById('like-button').addEventListener('change', function() {
+document.getElementById("like-button").addEventListener("change", function () {
   if (this.checked) {
     Swal.fire({
-      title: '감사합니다!',
-      text: 'Thank you for press this button!',
-      icon: 'success',
-      confirmButtonText: '닫기'
+      title: "감사합니다!",
+      text: "Thank you for press this button!",
+      icon: "success",
+      confirmButtonText: "닫기",
     });
   }
 });
 
-// ------------------------------------------------ change images start 
+// ------------------------------------------------ change images start
 
 let currentIndex = 0;
 const images = document.querySelectorAll(".slider-image");
 const totalImages = images.length;
 
-images[0].classList.add("active"); // 첫 번째 이미지 활성화
+images[0].classList.add("active"); 
 
 function changeImage() {
-    images[currentIndex].classList.remove("active"); // 현재 이미지 비활성화
-    currentIndex = (currentIndex + 1) % totalImages; // 다음 이미지 인덱스로 이동
-    images[currentIndex].classList.add("active"); // 다음 이미지 활성화
+  images[currentIndex].classList.remove("active"); 
+  currentIndex = (currentIndex + 1) % totalImages; 
+  images[currentIndex].classList.add("active"); 
 }
 
-// 3초마다 이미지 변경
+
 setInterval(changeImage, 3000);
 
 // ----------------------------------------------------- change image end
 
+// ----------------------------------------- project preview start
+let tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#s4preview",
+    start: "top top",
+    end: "+=7500",
+    scrub: true,
+  },
+});
+
+
+gsap.to("#s4preview", {
+  scrollTrigger: {
+    trigger: "#s4preview",
+    start: "top top",
+    end: "+=7500",
+    scrub: true,
+    pin: true,
+  },
+});
+
+tl.to("#s4preview ul", {
+  rotate: 30,
+});
+tl.to("#s4preview ul", {
+  rotate: -360,
+  width: "50vw",
+  height: "50vw",
+});
+
+tl.to(
+  "#s4preview ul li", {
+    borderRadius: 60,
+  },
+  "<"
+);
+
+tl.to("#s4preview ul li", {
+  width: "39%",
+  height: "39%",
+  margin: "1%",
+});
+
+
+tl.to("#s4preview ul", {
+  width: "70vw",
+  height: "39.725vw",
+});
+
+tl.to("#s4preview ul li .cont", {
+  opacity: 1
+},"<");
+
+tl.to("#s4preview ul li .s4text", {
+  opacity: 1
+},"<");
