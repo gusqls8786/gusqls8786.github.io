@@ -196,6 +196,7 @@ setInterval(changeImage, 3000);
 // ----------------------------------------- project preview start
 let tl = gsap.timeline({
   scrollTrigger: {
+    duration: 0.1,
     trigger: "#s4preview",
     start: "top top",
     end: "+=7500",
@@ -207,6 +208,7 @@ let tl = gsap.timeline({
 
 gsap.to("#s4preview", {
   scrollTrigger: {
+    duration: 0.1,
     trigger: "#s4preview",
     start: "top top",
     end: "+=7500",
@@ -216,12 +218,14 @@ gsap.to("#s4preview", {
 });
 
 tl.to("#s4preview ul", {
+  duration: 0.1,
   rotate: 30,
   duration: 0.1 
 });
 
 
 tl.to("#s4preview ul", {
+  duration: 0.1,
   rotate: -360,
   width: "50vw",
   height: "50vw",
@@ -231,6 +235,7 @@ tl.to("#s4preview ul", {
 
 tl.to(
   "#s4preview ul li", {
+    duration: 0.1,
     borderRadius: 60,
   },
   "<"
