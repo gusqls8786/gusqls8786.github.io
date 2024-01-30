@@ -52,7 +52,7 @@ let executed = false;
 function animateSkills() {
   document.querySelectorAll(".skill-per").forEach((perElement) => {
     gsap.to(perElement, {
-      duration: 2,
+      duration: 5,
       width: perElement.getAttribute("per") + "%",
       onUpdate: function () {
         console.log(perElement.style.width);
@@ -66,8 +66,8 @@ function animateSkills() {
 }
 
 ScrollTrigger.create({
-  trigger: ".main",
-  start: "top 30%",
+  trigger: "#section4_5",
+  start: "top top",
   onEnter: () => {
     if (!executed) {
       animateSkills();
@@ -199,7 +199,7 @@ let tl = gsap.timeline({
     duration: 0.1,
     trigger: "#s4preview",
     start: "top top",
-    end: "+=7500",
+    end: "+=3000",
     scrub: true,
   },
 });
@@ -211,7 +211,7 @@ gsap.to("#s4preview", {
     duration: 0.1,
     trigger: "#s4preview",
     start: "top top",
-    end: "+=7500",
+    end: "+=3000",
     scrub: true,
     pin: true,
   },
@@ -264,3 +264,4 @@ tl.to("#s4preview ul li .s4text", {
 },"<");
 
 // ----------------------------------------- project preview end
+
