@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<script>
+	let cnt = 1;
+	function loadPosts() {
+		if (localStorage.getItem('posts')) {
+			const posts = JSON.parse(localStorage.getItem('posts'));
+			posts.forEach(post => {
+				const el = mkDiv(post.writer, post.pwd, post.content);
+				document.getElementById("list").appendChild(el);
+				cnt++;
+			});
+		}
+	}
+
+	function savePost(writer, pwd, content) {
+		const posts = JSON.parse(localStorage.getItem('posts')) || [];
+		posts.push({ writer, pwd, content });
+		localStorage.setItem('posts', JSON.stringify(posts));
+	}
+
+	function updatePost(index, newWriter, newContent) {
+		const posts = JSON.parse(localStorage.getItem('posts'));
+		posts[index] = { ...posts[index], writer: newWriter, content: newContent };
+		localStorage.setItem('posts', JSON.stringify(posts));
+	}
+
+	function deletePost(index) {
+		const posts = JSON.parse(localStorage.getItem('posts'));
+		posts.splice(index, 1);
+		localStorage.setItem('posts', JSON.stringify(posts));
+	}
+
+	function a() {
+		let writer = f.writer.value;
+		let pwd = f.pwd.value;
+		let content = f.content.value;
+		savePost(writer, pwd, content);
+		let el = mkDiv(writer, pwd, content);
+		let list = document.getElementById("list");
+		list.appendChild(el);
+		f.writer.value = "";
+		f.pwd.value = "";
+		f.content.value = "";
+	}
+
+	function mkDiv(writer, pwd, content) {
+		let newDiv = document.createElement("div");
+		newDiv.id = "d_" + cnt;
+		newDiv.setAttribute('pwd', pwd);
+		let html = "";
+		html += "writer:<span id='w_"+cnt+"'>" + writer + "</span><br/>";
+		html += "content:<span id='c_"+cnt+"'>" + content + "</span><br/>";
+		html += "<input type='button' value='수정' onclick='editForm(" + cnt + ")'>";
+		html += "<input type='button' value='삭제' onclick='del(" + cnt + ")'>";
+		newDiv.innerHTML = html;
+		cnt++;
+		return newDiv;
+	}
+
+	function edit() {
+		let index = document.getElementById("editbtn").getAttribute('cnt') - 1;
+		let newWriter = document.getElementById("editwriter").value;
+		let newContent = document.getElementById("editcontent").value;
+		updatePost(index, newWriter, newContent);
+		let editDiv = document.getElementById("d_" + (index + 1));
+		document.getElementById("w_" + (index + 1)).innerHTML = newWriter;
+		document.getElementById("c_" + (index + 1)).innerHTML = newContent;
+		cancel();
+	}
+
+	function del(cnt) {
+		let pwd = prompt("글 비밀번호");
+		let delDiv = document.getElementById("d_" + cnt);
+		if (pwd == delDiv.getAttribute('pwd')) {
+			deletePost(cnt - 1);
+			document.getElementById("list").removeChild(delDiv);
+		} else {
+			alert("글 비밀번호 불일치. 삭제취소");
+		}
+	}
+
+	window.onload = loadPosts;
+</script>
+
+
+</head>
+<body>
+	<h3>방명록</h3>
+	<form name="f">
+		<table id="t1">
+			<tr>
+				<th>작성자</th>
+				<td><input type="text" name="writer" id="writer"></td>
+			</tr>
+			<tr>
+				<th>글 비밀번호</th>
+				<td><input type="password" name="pwd" id="pwd"></td>
+			</tr>
+			<tr>
+				<th>내용</th>
+				<td><input type="text" name="content" id="content"></td>
+			</tr>
+			<tr>
+				<th>작성</th>
+				<td><input type="button" value="작성" onclick="a()"></td>
+			</tr>
+		</table>
+	</form>
+	<div id="list"></div>
+	
+	<!-- 수정폼 -->
+	<table id="editf" style="display: none;">
+		<tr>
+			<th>작성자</th>
+			<td><input type="text" name="editwriter" id="editwriter"></td>
+		</tr>
+		<tr>
+			<th>글 비밀번호</th>
+			<td><input type="password" name="editpwd" id="editpwd"></td>
+		</tr>
+		<tr>
+			<th>내용</th>
+			<td><input type="text" name="editcontent" id="editcontent"></td>
+		</tr>
+		<tr>
+			<th>수정완료</th>
+			<td><input type="button" value="수정완료" id="editbtn"
+				onclick="edit()"> <input type="button" value="취소"
+				onclick="cancel()"></td>
+		</tr>
+	</table>
+
+</body>
+</html>
